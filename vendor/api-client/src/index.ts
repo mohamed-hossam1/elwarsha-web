@@ -30,12 +30,19 @@ export type SessionResponse = {
   memberships: Membership[];
 };
 
+export type ProductRepositoryInfo = {
+  id?: string;
+  githubOwner: string;
+  githubRepo: string;
+};
+
 export type Product = {
   id: string;
   slug: string;
   name: string;
   status: "draft" | "active" | "archived";
-  repository: { githubOwner: string; githubRepo: string } | null;
+  repositories?: ProductRepositoryInfo[];
+  repository: ProductRepositoryInfo | null;
 };
 
 export type Engagement = {
@@ -152,6 +159,36 @@ export type ApplyCohortInput = {
   motivation: string;
 };
 
+export type SubmissionStatus =
+  "draft" | "submitted" | "in_review" | "eligible" | "merged" | "withdrawn";
+
+export type PullRequestSummary = {
+  number: number;
+  state: "open" | "closed" | "merged";
+  htmlUrl: string;
+};
+
+export type RepositorySubmissionItem = {
+  id: string | null;
+  assignmentId: string;
+  weekNumber: number;
+  productRepositoryId?: string | null;
+  githubOwner: string;
+  githubRepo: string;
+  status: SubmissionStatus;
+  prUrl: string | null;
+  pullRequest: PullRequestSummary | null;
+  updatedAt: string | null;
+};
+
+export type AssignmentSubmissionsResponse = {
+  assignmentId: string;
+  weekNumber: number;
+  submissions: RepositorySubmissionItem[];
+};
+
+export type AssignmentSubmissionResponse = RepositorySubmissionItem;
+
 export type CohortApplicationResponse = {
   id: string;
   cohortSlug: string;
@@ -231,6 +268,20 @@ export function createElWarshaClient(options: ElWarshaClientOptions) {
     listWeeks: (params?: { locale?: Locale }) =>
       request<Week[]>(
         params?.locale ? `/api/v1/weeks?locale=${params.locale}` : "/api/v1/weeks",
+      ),
+    getAssignmentSubmissions: (cohortSlug: string, weekNumber: number) =>
+      request<AssignmentSubmissionsResponse>(
+        `/api/v1/cohorts/${cohortSlug}/assignments/${weekNumber}/submissions`,
+      ),
+    getAssignmentSubmission: (
+      cohortSlug: string,
+      weekNumber: number,
+      params?: { repositoryId?: string },
+    ) =>
+      request<AssignmentSubmissionResponse>(
+        params?.repositoryId
+          ? `/api/v1/cohorts/${cohortSlug}/assignments/${weekNumber}/submission?repositoryId=${params.repositoryId}`
+          : `/api/v1/cohorts/${cohortSlug}/assignments/${weekNumber}/submission`,
       ),
     applyCohort: (cohortSlug: string, input: ApplyCohortInput) =>
       request<CohortApplicationResponse>(`/api/v1/cohorts/${cohortSlug}/applications`, {

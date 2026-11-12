@@ -144,6 +144,16 @@ export const messages = {
       submissions: "التسليمات",
       reviews: "المراجعات",
       signOut: "تسجيل الخروج",
+      submissionStatus: "حالة التسليم وتتبع GitHub",
+      submissionDraftTitle: "لم يتم فتح طلب دمج (PR) بعد",
+      submissionDraftBody:
+        "افتح طلب دمج على GitHub يبدأ عنوانه بـ {tag} ليتم تتبع تسليمك ومزامنته تلقائياً فوراً.",
+      submissionInReviewTitle: "تم تسليم طلب الدمج — قيد المراجعة",
+      submissionInReviewBody: "طلب الدمج الخاص بك مفتوح على GitHub ويجري تتبعه بنجاح.",
+      submissionMergedTitle: "تم الدمج بنجاح!",
+      submissionMergedBody:
+        "تم دمج طلب الدمج الخاص بك في الفرع الرئيسي واكتمل تسليم الأسبوع بنجاح.",
+      viewPrOnGithub: "عرض طلب الدمج على GitHub",
     },
     apply: {
       eyebrow: "الدفعة القادمة / Cohort 02",
@@ -297,6 +307,16 @@ export const messages = {
       submissions: "Submissions",
       reviews: "Reviews",
       signOut: "Sign out",
+      submissionStatus: "Submission Status & GitHub Tracking",
+      submissionDraftTitle: "No Pull Request Opened Yet",
+      submissionDraftBody:
+        "Open a pull request on GitHub with a title starting with {tag} to track your submission automatically.",
+      submissionInReviewTitle: "Pull Request Submitted — In Review",
+      submissionInReviewBody: "Your pull request is open on GitHub and actively tracked.",
+      submissionMergedTitle: "Merged Successfully!",
+      submissionMergedBody:
+        "Your pull request has been merged into main. Week assignment completed!",
+      viewPrOnGithub: "View Pull Request on GitHub",
     },
     apply: {
       eyebrow: "Upcoming Cohort / Cohort 02",

@@ -1,5 +1,15 @@
 import { expect, test } from "@playwright/test";
 
+test.beforeEach(async ({ page }) => {
+  await page.route("**/api/v1/auth/me", (route) =>
+    route.fulfill({
+      status: 401,
+      contentType: "application/json",
+      body: JSON.stringify({ message: "Unauthorized" }),
+    }),
+  );
+});
+
 test("switches between Arabic and English public pages", async ({ page }) => {
   await page.route("**/api/v1/auth/me", (route) =>
     route.fulfill({
