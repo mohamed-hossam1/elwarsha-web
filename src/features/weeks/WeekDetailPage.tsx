@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { messages, type Locale } from "@core/i18n";
 import { PageSection } from "@ui/patterns/PageSection/PageSection";
 import { StatePanel } from "@ui/patterns/StatePanel/StatePanel";
+import { SubmissionStatusSection } from "@ui/components/SubmissionStatusCard/SubmissionStatusSection";
 import { useCohortWeekDetail } from "./useCohortWeekDetail.js";
 import { WeekLockedView } from "./components/WeekLockedView.js";
 import { WeekHeader } from "./components/WeekHeader.js";
@@ -79,6 +80,12 @@ export function WeekDetailPage({ locale }: { locale: Locale }) {
       </Link>
 
       <WeekHeader week={week} copy={copy} />
+
+      <SubmissionStatusSection
+        cohortSlug={cohortSlug}
+        weekNumber={weekNum}
+        locale={locale}
+      />
 
       <WeekOutcomesList outcomes={week.outcomes} title={copy.portal.learningOutcomes} />
 

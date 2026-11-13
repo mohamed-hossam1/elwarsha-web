@@ -154,6 +154,14 @@ export const messages = {
       submissionMergedBody:
         "تم دمج طلب الدمج الخاص بك في الفرع الرئيسي واكتمل تسليم الأسبوع بنجاح.",
       viewPrOnGithub: "عرض طلب الدمج على GitHub",
+      submissionRefresh: "↻ تحديث من GitHub",
+      submissionDraftBadge: "مسودة",
+      submissionInReviewBadge: "● قيد المراجعة",
+      submissionMergedBadge: "✓ تم الدمج",
+      submissionPrLabel: "طلب الدمج #{number}",
+      submissionRepoView: "افتح مستودع {repo} على GitHub",
+      submissionError: "تعذرت مزامنة حالة التسليمات من GitHub. حاول التحديث مرة أخرى.",
+      submissionEmpty: "لا توجد مستودعات مرتبطة بهذا المنتج بعد.",
     },
     apply: {
       eyebrow: "الدفعة القادمة / Cohort 02",
@@ -317,6 +325,15 @@ export const messages = {
       submissionMergedBody:
         "Your pull request has been merged into main. Week assignment completed!",
       viewPrOnGithub: "View Pull Request on GitHub",
+      submissionRefresh: "↻ Refresh from GitHub",
+      submissionDraftBadge: "Draft",
+      submissionInReviewBadge: "● In Review",
+      submissionMergedBadge: "✓ Merged",
+      submissionPrLabel: "Pull Request #{number}",
+      submissionRepoView: "Open {repo} repository on GitHub",
+      submissionError:
+        "Could not sync submission status from GitHub. Try refreshing again.",
+      submissionEmpty: "No repositories are configured for this product yet.",
     },
     apply: {
       eyebrow: "Upcoming Cohort / Cohort 02",

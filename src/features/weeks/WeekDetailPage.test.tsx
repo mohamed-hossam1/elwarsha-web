@@ -11,6 +11,7 @@ import type { Week } from "./weeks.schema.js";
 vi.mock("@core/api", () => ({
   api: {
     getCohortWeek: vi.fn(),
+    getAssignmentSubmissions: vi.fn(),
   },
 }));
 
@@ -72,6 +73,25 @@ describe("WeekDetailPage", () => {
 
   beforeEach(() => {
     vi.mocked(api.getCohortWeek).mockReset();
+    vi.mocked(api.getAssignmentSubmissions).mockReset();
+    vi.mocked(api.getAssignmentSubmissions).mockResolvedValue({
+      assignmentId: "assignment-1",
+      weekNumber: 1,
+      submissions: [
+        {
+          id: "submission-1",
+          assignmentId: "assignment-1",
+          weekNumber: 1,
+          productRepositoryId: "repo-1",
+          githubOwner: "El-warsha",
+          githubRepo: "elwarsha-api",
+          status: "draft",
+          prUrl: null,
+          pullRequest: null,
+          updatedAt: "2026-11-07T11:00:00.000Z",
+        },
+      ],
+    });
   });
 
   it("renders week details, guiding question, big idea, concepts, stack, and resources", async () => {

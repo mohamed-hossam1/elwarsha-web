@@ -9,3 +9,10 @@ export const submissionsRoute: RouteDescriptor = {
   capability: "submissions.read",
   element: SubmissionsPage,
 };
+
+export {
+  SubmissionStatusCard,
+  type SubmissionStatusCardProps,
+} from "./SubmissionStatusCard.js";
+export { SubmissionStatusSection } from "./SubmissionStatusSection.js";
+export { useAssignmentSubmissions } from "./useSubmission.js";

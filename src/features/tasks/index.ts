@@ -9,3 +9,9 @@ export const assignmentsRoute: RouteDescriptor = {
   capability: "assignments.read",
   element: TasksPage,
 };
+
+export {
+  SubmissionStatusCard,
+  type SubmissionStatusCardProps,
+} from "./SubmissionStatusCard.js";
+export { useAssignmentSubmissions } from "./useSubmission.js";
